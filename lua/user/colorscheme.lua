@@ -1,5 +1,6 @@
+vim.g.tokyonight_dark_sidebar = false
 
-local colorscheme = 'moonlight'
+local colorscheme = 'tokyonight'
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)
 if not status_ok then
