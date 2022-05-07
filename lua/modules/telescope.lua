@@ -1,5 +1,5 @@
-local status_ok, telescope = pcall(require, "telescope")
-if not status_ok then
+local success, telescope = pcall(require, "telescope")
+if not success then
   return
 end
 

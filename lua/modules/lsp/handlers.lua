@@ -95,8 +95,8 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-if not status_ok then
+local success, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
+if not success then
   return
 end
 

@@ -1,5 +1,5 @@
-local status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not status_ok then
+local success, lsp_installer = pcall(require, 'nvim-lsp-installer')
+if not success then
 	return
 end
 
@@ -7,13 +7,13 @@ end
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
 	local opts = {
-		on_attach = require("user.lsp.handlers").on_attach,
-		capabilities = require("user.lsp.handlers").capabilities,
+		on_attach = require('modules.lsp.handlers').on_attach,
+		capabilities = require('modules.lsp.handlers').capabilities,
 	}
 
-	 if server.name == "jsonls" then
-	 	local jsonls_opts = require("user.lsp.settings.jsonls")
-	 	opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
+	 if server.name == 'jsonls' then
+	 	local jsonls_opts = require('modules.lsp.settings.jsonls')
+	 	opts = vim.tbl_deep_extend('force', jsonls_opts, opts)
 	 end
 
 	-- This setup() function is exactly the same as lspconfig's setup function.
