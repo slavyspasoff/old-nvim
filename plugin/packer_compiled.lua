@@ -218,6 +218,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/spasoff/.local/share/nvim/site/pack/packer/start/vim-css-color",
     url = "https://github.com/ap/vim-css-color"
+  },
+  ["which-key.nvim"] = {
+    loaded = true,
+    path = "/home/spasoff/.local/share/nvim/site/pack/packer/start/which-key.nvim",
+    url = "https://github.com/folke/which-key.nvim"
   }
 }
 

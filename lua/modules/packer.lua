@@ -74,6 +74,8 @@ return packer.startup(function(use)
 	use 'JoosepAlviste/nvim-ts-context-commentstring'
 	use 'p00f/nvim-ts-rainbow'
 
+  use 'folke/which-key.nvim'
+
 	-- transition plugins
 	-- Plug 'tpope/vim-surround' 
 	-- Plug 'tpope/vim-commentary'
