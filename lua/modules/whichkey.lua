@@ -1,14 +1,14 @@
-local success, whichkey = pcall(require, "which-key")
+local success, wk = pcall(require, "which-key")
 if not success then
   return
 end
 
-whichkey.setup {
+wk.setup {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
     spelling = {
-      enabled = false, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
+      enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
       suggestions = 20, -- how many suggestions should be shown in the list?
     },
     -- the presets plugin, adds help for a bunch of default keybindings in Neovim
@@ -68,3 +68,23 @@ whichkey.setup {
     v = { "j", "k" },
   },
 }
+
+local mapping = {
+  ['t'] = {'<cmd>NvimTreeToggle<cr>', 'File Tree'},
+  ['f'] = {'<cmd>Telescope find_files<cr>', 'Telescope file find'},
+  ['g'] = {'<cmd>Telescope live_grep<cr>', 'Telescope live grep'},
+  ['p'] = {'<cmd>lua vim.lsp.buf.formatting_sync()<CR>', 'Format with Prettier'},
+}
+
+local opts = {
+  mode = "n", -- NORMAL mode
+  -- prefix: use "<leader>f" for example for mapping everything related to finding files
+  -- the prefix is prepended to every mapping part of `mappings`
+  prefix = "<leader>",
+  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+  silent = true, -- use `silent` when creating keymaps
+  noremap = true, -- use `noremap` when creating keymaps
+  nowait = false, -- use `nowait` when creating keymaps
+}
+
+wk.register(mapping, opts)
