@@ -61,6 +61,7 @@ return packer.startup(function(use)
 	use 'drewtempelmeyer/palenight.vim'
 	use 'arcticicestudio/nord-vim'
 	use 'joshdick/onedark.vim'
+  use 'catppuccin/nvim'
 
 	-- cmp plugins 
 	use "hrsh7th/nvim-cmp" -- The completion plugin
