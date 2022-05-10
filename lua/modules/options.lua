@@ -12,6 +12,7 @@ vim.opt.completeopt = {'menuone','noselect'}
 vim.opt.pumheight = 10                             
 vim.opt.splitright = true                          
 vim.opt.updatetime = 300                           
+vim.opt.timeoutlen = 0
 vim.opt.cursorline = true                          
 vim.opt.signcolumn = 'yes'                         
 vim.opt.wrap = false                               

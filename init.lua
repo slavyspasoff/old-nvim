@@ -1,7 +1,7 @@
 require 'modules.options'
 require 'modules.keymaps'
 require 'modules.format-on-save'
-require 'modules.theme-config'
+require 'modules.themes'
 require 'modules.packer'
 require 'modules.lualine'
 require 'modules.cmp' -- TODO: edit config
