@@ -3,6 +3,7 @@ require ('modules.themes.tokyonight')
 require ('modules.themes.kanagawa')
 require ('modules.themes.ayu')
 require ('modules.themes.rose-pine')
+require ('modules.themes.moonlight')
 
 local colorscheme = 'tokyonight'
 
