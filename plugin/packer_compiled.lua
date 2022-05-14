@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/home/spasoff/.local/share/nvim/site/pack/packer/start/neovim-ayu",
     url = "https://github.com/Shatur/neovim-ayu"
   },
+  ["nightfox.nvim"] = {
+    loaded = true,
+    path = "/home/spasoff/.local/share/nvim/site/pack/packer/start/nightfox.nvim",
+    url = "https://github.com/EdenEast/nightfox.nvim"
+  },
   ["nord-vim"] = {
     loaded = true,
     path = "/home/spasoff/.local/share/nvim/site/pack/packer/start/nord-vim",

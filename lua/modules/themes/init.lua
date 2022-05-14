@@ -4,6 +4,7 @@ require ('modules.themes.kanagawa')
 require ('modules.themes.ayu')
 require ('modules.themes.rose-pine')
 require ('modules.themes.moonlight')
+require ('modules.themes.nightfox')
 
 local colorscheme = 'tokyonight'
 

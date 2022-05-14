@@ -34,6 +34,7 @@ return packer.startup(function(use)
   use 'rebelot/kanagawa.nvim'
   use 'Shatur/neovim-ayu'
   use 'rose-pine/neovim'
+  use 'EdenEast/nightfox.nvim'
 
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/popup.nvim' 
