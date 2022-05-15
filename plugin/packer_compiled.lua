@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/spasoff/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
     url = "https://github.com/rebelot/kanagawa.nvim"
   },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/home/spasoff/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
+  },
   ["lualine.nvim"] = {
     loaded = true,
     path = "/home/spasoff/.local/share/nvim/site/pack/packer/start/lualine.nvim",
@@ -223,6 +228,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/spasoff/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["schemastore.nvim"] = {
+    loaded = true,
+    path = "/home/spasoff/.local/share/nvim/site/pack/packer/start/schemastore.nvim",
+    url = "https://github.com/b0o/schemastore.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

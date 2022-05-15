@@ -62,6 +62,8 @@ return packer.startup(function(use)
 
   use 'neovim/nvim-lspconfig'
   use 'williamboman/nvim-lsp-installer'
+  use 'ray-x/lsp_signature.nvim'
+  use 'b0o/schemastore.nvim'
 
   use 'jose-elias-alvarez/null-ls.nvim'
 

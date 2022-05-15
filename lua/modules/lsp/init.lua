@@ -3,6 +3,8 @@ if not success then
 	return
 end
 
+require 'modules.lsp.signature'
+
 local servers = {
   'html',
   'cssls',
