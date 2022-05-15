@@ -165,4 +165,42 @@ for _, server in pairs(servers) do
   lspconfig[server].setup(opts)
 end
 
+lspconfig.eslint.setup{
+  cmd = { "vscode-eslint-language-server", "--stdio" },
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue" },
+  on_new_config = function(config, new_root_dir)
+    config.settings.workspaceFolder = {
+      uri = new_root_dir,
+      name = vim.fn.fnamemodify(new_root_dir, ':t'),
+    }
+  end,
+  settings = {
+    codeAction = {
+      disableRuleComment = {
+        enable = true,
+        location = "separateLine"
+      },
+      showDocumentation = {
+        enable = true
+      }
+    },
+    codeActionOnSave = {
+      enable = true,
+      mode = "all"
+    },
+    format = false,
+    nodePath = "",
+    onIgnoredFiles = "off",
+    packageManager = "npm",
+    quiet = false,
+    rulesCustomizations = {},
+    run = "onType",
+    useESLintClass = false,
+    validate = "on",
+    workingDirectory = {
+      mode = "auto"
+    }
+  }
+}
+
 vim.cmd [[autocmd! CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})]] -- show errors in a float window on line highlight 
