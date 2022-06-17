@@ -29,7 +29,6 @@ return packer.startup(function(use)
   use 'folke/tokyonight.nvim'
   use 'shaunsingh/moonlight.nvim'
   use 'drewtempelmeyer/palenight.vim'
-  use 'arcticicestudio/nord-vim'
   use 'catppuccin/nvim'
   use 'rebelot/kanagawa.nvim'
   use 'Shatur/neovim-ayu'
