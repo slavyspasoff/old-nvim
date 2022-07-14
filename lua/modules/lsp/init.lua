@@ -1,6 +1,6 @@
 local success, lsp_installer = pcall(require, 'nvim-lsp-installer')
 if not success then
-	return
+  return
 end
 
 require 'modules.lsp.signature'
@@ -10,39 +10,42 @@ local servers = {
   'cssls',
   'cssmodules_ls',
   'tsserver',
-  'jsonls'
+  'jsonls',
+  'golangci_lint_ls',
+  'gopls',
+  'sumneko_lua'
 
 }
 
 lsp_installer.setup {
-    ensure_installed = servers,
+  ensure_installed = servers,
 
-    -- This setting has no relation with the `ensure_installed` setting.
-    -- Can either be:
-    --   - false: Servers are not automatically installed.
-    --   - true: All servers set up via lspconfig are automatically installed.
-    --   - { exclude: string[] }: All servers set up via lspconfig, except the ones provided in the list, are automatically installed.
-    --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
-    automatic_installation = false,
-    ui = {
-        icons = {
-            server_installed = "✓",
-            server_pending = "➜",
-            server_uninstalled = "✗"
-        },
-        keymaps = {
-            toggle_server_expand = "<CR>",
-            install_server = "i",
-            update_server = "u",
-            check_server_version = "c",
-            update_all_servers = "U",
-            check_outdated_servers = "C",
-            uninstall_server = "X",
-        },
+  -- This setting has no relation with the `ensure_installed` setting.
+  -- Can either be:
+  --   - false: Servers are not automatically installed.
+  --   - true: All servers set up via lspconfig are automatically installed.
+  --   - { exclude: string[] }: All servers set up via lspconfig, except the ones provided in the list, are automatically installed.
+  --       Example: automatic_installation = { exclude = { "rust_analyzer", "solargraph" } }
+  automatic_installation = false,
+  ui = {
+    icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗"
     },
-    log_level = vim.log.levels.INFO,
+    keymaps = {
+      toggle_server_expand = "<CR>",
+      install_server = "i",
+      update_server = "u",
+      check_server_version = "c",
+      update_all_servers = "U",
+      check_outdated_servers = "C",
+      uninstall_server = "X",
+    },
+  },
+  log_level = vim.log.levels.INFO,
 }
-
+-- TODO: TO FIX THE REDEFINED SUCCESS VARIALES
 local success, lspconfig = pcall(require, 'lspconfig')
 if not success then
   return
@@ -93,14 +96,14 @@ local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
     vim.api.nvim_exec(
-      [[
-      augroup lsp_document_highlight
-        autocmd! * <buffer>
-        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-      augroup END
-    ]],
-      false
+    [[
+    augroup lsp_document_highlight
+    autocmd! * <buffer>
+    autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+    autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+    augroup END
+    ]] ,
+    false
     )
   end
 end
@@ -165,9 +168,10 @@ for _, server in pairs(servers) do
   lspconfig[server].setup(opts)
 end
 
-lspconfig.eslint.setup{
+lspconfig.eslint.setup {
   cmd = { "vscode-eslint-language-server", "--stdio" },
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx", "vue" },
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx",
+  "vue" },
   on_new_config = function(config, new_root_dir)
     config.settings.workspaceFolder = {
       uri = new_root_dir,

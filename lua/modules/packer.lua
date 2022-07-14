@@ -1,7 +1,8 @@
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+local fn = vim.fn
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path)) > 0 then
+  packer_bootstrap = fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim',
+    install_path })
 end
 
 vim.cmd [[
@@ -19,7 +20,7 @@ end
 packer.init {
   display = {
     open_fn = function()
-      return require('packer.util').float {border='rounded'}
+      return require('packer.util').float { border = 'rounded' }
     end,
   },
 }
@@ -36,13 +37,13 @@ return packer.startup(function(use)
   use 'EdenEast/nightfox.nvim'
 
   use 'wbthomason/packer.nvim'
-  use 'nvim-lua/popup.nvim' 
-  use 'nvim-lua/plenary.nvim' 
+  use 'nvim-lua/popup.nvim'
+  use 'nvim-lua/plenary.nvim'
 
-  use 'windwp/nvim-autopairs' 
+  use 'windwp/nvim-autopairs'
   use 'ap/vim-css-color'
   use 'mattn/emmet-vim'
-  use 'numToStr/Comment.nvim' 
+  use 'numToStr/Comment.nvim'
 
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
@@ -68,7 +69,7 @@ return packer.startup(function(use)
 
   use {
     'nvim-telescope/telescope.nvim',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
   use {
@@ -82,14 +83,13 @@ return packer.startup(function(use)
   use 'folke/which-key.nvim'
 
   -- transition plugins
-  -- Plug 'tpope/vim-surround' 
+  -- Plug 'tpope/vim-surround'
   -- Plug 'tpope/vim-commentary'
   -- Plug 'preservim/tagbar'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
+  if packer_bootstrap then
     require('packer').sync()
   end
 end)
-
