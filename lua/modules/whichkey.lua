@@ -56,7 +56,7 @@ wk.setup {
     align = "left", -- align columns left, center or right
   },
   ignore_missing = false, -- enable this to hide mappings for which you didn't specify a label
-  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ "}, -- hide mapping boilerplate
+  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
   show_help = true, -- show help message on the command line when the popup is visible
   triggers = "auto", -- automatically setup triggers
   -- triggers = {"<leader>"} -- or specify a list manually
@@ -70,10 +70,10 @@ wk.setup {
 }
 
 local mapping = {
-  ['t'] = {'<cmd>NvimTreeToggle<cr>', 'File Tree'},
-  ['f'] = {'<cmd>Telescope find_files<cr>', 'Telescope file find'},
-  ['g'] = {'<cmd>Telescope live_grep<cr>', 'Telescope live grep'},
-  ['p'] = {'<cmd>lua vim.lsp.buf.formatting_sync()<CR>', 'Format with Prettier'},
+  ['t'] = { '<cmd>NvimTreeToggle<cr>', 'File Tree' },
+  ['f'] = { '<cmd>Telescope find_files<cr>', 'Telescope file find' },
+  ['g'] = { '<cmd>Telescope live_grep<cr>', 'Telescope live grep' },
+  ['p'] = { '<cmd>lua vim.lsp.buf.format()<CR>', 'Format with Prettier' },
 }
 
 local opts = {

@@ -62,13 +62,13 @@ keymap("n", "<leader>f", "<cmd>Telescope find_files<cr>", opts)
 -- keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<cr>", opts)
 keymap("n", "<leader>g", "<cmd>Telescope live_grep<cr>", opts)
 -- formatting with prettier
-keymap("n", "<leader>p", "<cmd>lua vim.lsp.buf.formatting_sync()<CR>", opts)
+keymap("n", "<leader>p", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
 -- Nvimtree
 keymap("n", "<leader>t", ":NvimTreeToggle<cr>", opts)
 
 -- vsplit
-keymap("n", "<C-\\>", ":vsplit <CR>",opts)
+keymap("n", "<C-\\>", ":vsplit <CR>", opts)
 
 -- Terminal --
 -- Better terminal navigation

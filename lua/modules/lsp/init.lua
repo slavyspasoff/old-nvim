@@ -94,16 +94,16 @@ end
 
 local function lsp_highlight_document(client)
   -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.documentFormattingProvider then
     vim.api.nvim_exec(
-    [[
+      [[
     augroup lsp_document_highlight
     autocmd! * <buffer>
     autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
     autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
     augroup END
     ]] ,
-    false
+      false
     )
   end
 end
@@ -130,7 +130,7 @@ local function lsp_keymaps(bufnr)
   -- )
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 end
 
 handlers.on_attach = function(client, bufnr)
@@ -171,7 +171,7 @@ end
 lspconfig.eslint.setup {
   cmd = { "vscode-eslint-language-server", "--stdio" },
   filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx",
-  "vue" },
+    "vue" },
   on_new_config = function(config, new_root_dir)
     config.settings.workspaceFolder = {
       uri = new_root_dir,
