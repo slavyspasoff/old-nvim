@@ -13,7 +13,7 @@ local servers = {
   'jsonls',
   'golangci_lint_ls',
   'gopls',
-  'sumneko_lua'
+  'lua_ls'
 
 }
 
@@ -148,7 +148,7 @@ if not success then
   return
 end
 
-handlers.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+handlers.capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 handlers.setup()
 
